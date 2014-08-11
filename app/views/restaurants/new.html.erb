@@ -1,0 +1,17 @@
+<h1>New Restaurant</h1>
+
+<%= form_for :restaurant, url: restaurants_path do |form| %>
+	<p>
+		<%= form.label :name %><br>
+		<%= form.text_field :name %>
+	</p>
+
+	<p>
+		<%= form.label :cuisine %><br>
+		<%= form.text_area :cuisine %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+<% end %>
