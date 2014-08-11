@@ -61,6 +61,13 @@ describe "restaurants" do
 			click_button 'Update Restaurant'
 			expect(page).to have_content('Cow and Waffle')
 		end
+
+		it 'I can delete it' do 
+			visit '/restaurants'
+			click_link 'Delete'
+			expect(page).to have_content("There are no restaurants currently listed on BrunchTime")
+
+		end
 	end
 
 end
