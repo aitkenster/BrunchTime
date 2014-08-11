@@ -58,7 +58,7 @@ describe "restaurants" do
 			visit '/restaurants'
 			click_link 'Edit'
 			fill_in "Name", :with => 'Cow and Waffle'
-			click_button 'Save Restaurant'
+			click_button 'Update Restaurant'
 			expect(page).to have_content('Cow and Waffle')
 		end
 	end

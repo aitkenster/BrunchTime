@@ -1,15 +1,1 @@
-<%= form_for :restaurant, url: restaurant_path(@restaurant), method: :patch do |form| %>
-	<p>
-		<%= form.label :name %><br>
-		<%= form.text_field :name %>
-	</p>
-
-	<p>
-		<%= form.label :cuisine %><br>
-		<%= form.text_field :cuisine %>
-	</p>
-
-	<p>
-		<%= form.submit %>
-	</p>
-<% end %>
+<%= render 'form' %>
