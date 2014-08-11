@@ -26,7 +26,18 @@
 
 
 <h2>Add a review</h2>
-<%= form_for([@restaurant, @restaurant.reviews.build]) do |form| %>
+<%= form_for([@restaurant, @review]) do |form| %>
+	<% if @review.errors.any? %>
+		<article class="error_explaination">
+		<h3><%=pluralize(@review.errors.count, "error") %>
+		prevented this review from being saved:</h3>
+		<ul>
+			<% @review.errors.full_messages.each do |message| %>
+				<li><%=message%></li>
+			<%end%>
+		</ul>
+		</article>
+	<% end %>
 	<p>
 		<%= form.label :reviewer %><br>
 		<%= form.text_field :reviewer %>

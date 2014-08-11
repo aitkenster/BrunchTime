@@ -19,6 +19,7 @@ end
 
 def show
 	@restaurant = Restaurant.find(params[:id])
+	@review = @restaurant.reviews.build
 end
 
 def edit
