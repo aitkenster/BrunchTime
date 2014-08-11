@@ -22,14 +22,21 @@ describe "restaurants" do
 	end
 
 	context 'when I want to add a new restaurant' do 
-		it 'I fill in the new restaurant form' do
+		it 'I fill in the new restaurant form correctly' do
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			fill_in "Name", :with => "Chipotle"
 			fill_in "Cuisine", :with => "Mexican"
-			click_button "Save Restaurant"
-			visit '/restaurants'
+			click_button "Create Restaurant"
 			expect(page).to have_content("Chipotle")
+		end
+
+		it 'I get an error and return to the same page when I fill in the form incorrectly' do 
+			visit '/restaurants/new'
+			fill_in "Name", :with => "Chipotle"
+			click_button "Create Restaurant"
+			expect(page).to have_content("Please enter the details for the restaurant you wish to add:")
+			expect(page).to have_content("Cuisine can't be blank")
 		end
 	end
 
