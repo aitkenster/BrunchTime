@@ -8,10 +8,12 @@
 
 	<p>
 		<%= form.label :cuisine %><br>
-		<%= form.text_area :cuisine %>
+		<%= form.text_field :cuisine %>
 	</p>
 
 	<p>
 		<%= form.submit %>
 	</p>
 <% end %>
+
+<%= link_to 'Home', restaurants_path %>

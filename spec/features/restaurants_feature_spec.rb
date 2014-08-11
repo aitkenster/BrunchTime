@@ -23,14 +23,27 @@ describe "restaurants" do
 
 	context 'when I want to add a new restaurant' do 
 		it 'I fill in the new restaurant form' do
-			visit '/restaurants/new'
+			visit '/restaurants'
+			click_link 'Add a restaurant'
 			fill_in "Name", :with => "Chipotle"
 			fill_in "Cuisine", :with => "Mexican"
 			click_button "Save Restaurant"
 			visit '/restaurants'
 			expect(page).to have_content("Chipotle")
 		end
-
 	end
+
+	context 'when I want to return to the home page' do 
+		it 'I click the home link' do 
+			visit '/restaurants/new'
+			click_link 'Home'
+			expect(page).to have_content("There are no restaurants currently listed on BrunchTime")
+		end
+	end
+
+	# context 'when I want to edit the details of a restaurant' do 
+	# 	it 'I can change its name' do 
+	# 	end
+	# end
 
 end

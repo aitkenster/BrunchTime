@@ -1,7 +1,20 @@
-<%if @restaurants.empty?%>
-	There are no restaurants currently listed on BrunchTime
+<%if @restaurants.any?%>
+	<h1>Restaurant List</h1>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Cuisine</th>
+		</tr>
+		<% @restaurants.each do |restaurant| %>
+			<tr>
+				<td><%= restaurant.name %></td>
+				<td><%= restaurant.cuisine %></td>
+			</tr>
+		<% end %>
+	</table>
 <%else%>
-	<% @restaurants.each do |restaurant| %>
-		<h2><%= restaurant.name %></h2>
-	<% end %>
+	There are no restaurants currently listed on BrunchTime
 <%end%>
+
+<%= link_to 'Add a restaurant', new_restaurant_path %>
