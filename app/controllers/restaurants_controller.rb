@@ -15,7 +15,19 @@ def create
 	else
 		render 'new'
 	end
-	
+end
+
+def edit
+	@restaurant = Restaurant.find(params[:id])
+end
+
+def update
+	@restaurant = Restaurant.find(params[:id])
+	if @restaurant.update(restaurant_params)
+		redirect_to '/restaurants'
+	else
+		render 'edit'
+	end
 end
 
 private

@@ -48,9 +48,19 @@ describe "restaurants" do
 		end
 	end
 
-	# context 'when I want to edit the details of a restaurant' do 
-	# 	it 'I can change its name' do 
-	# 	end
-	# end
+	context 'when I want to edit the details of a restaurant' do 
+
+		before(:each) do
+			Restaurant.create(name: 'Duck and Waffle', cuisine: 'English')
+		end 
+
+		it 'I can change its name' do 
+			visit '/restaurants'
+			click_link 'Edit'
+			fill_in "Name", :with => 'Cow and Waffle'
+			click_button 'Save Restaurant'
+			expect(page).to have_content('Cow and Waffle')
+		end
+	end
 
 end

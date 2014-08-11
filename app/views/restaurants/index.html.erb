@@ -5,11 +5,13 @@
 		<tr>
 			<th>Name</th>
 			<th>Cuisine</th>
+			<th colspan="2"></th> 
 		</tr>
 		<% @restaurants.each do |restaurant| %>
 			<tr>
 				<td><%= restaurant.name %></td>
 				<td><%= restaurant.cuisine %></td>
+				<td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
 			</tr>
 		<% end %>
 	</table>
