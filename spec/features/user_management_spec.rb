@@ -1,13 +1,17 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# describe 'user authentiction' do 
+describe 'user authentiction' do 
 
-# 	it 'will not let a user add a restaurant without logging in' do
-# 		 visit '/restaurants'
-# 		 expect(page).not_to have_content("Add a restaurant")
-# 	end
+	it 'gives the user the option to log in on the home page when they are not signed in' do 
+		visit '/restaurants'
+		click_link 'Sign In'
+		expect(page).to have_content("Remember me")
+	end
 
-# 	# it 'will not let a user add a review without logging in' do 
-# 	# end
+	it 'gives the user the option to sign up when they are not signed in' do 
+		visit '/restaurants'
+		click_link 'Sign Up'
+		expect(page). to  have_content("Password confirmation")
+	end
 
-# end
+end
