@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe "restaurants" do 
 
+	include Warden::Test::Helpers
+  Warden.test_mode!
+
+ 
+
 	context 'when there are no restaurants' do
 		it "should tell the user there are no restaurants" do  
 			visit '/restaurants'
@@ -22,7 +27,9 @@ describe "restaurants" do
 	end
 
 	context 'when I want to add a new restaurant' do 
-		it 'I fill in the new restaurant form correctly' do
+
+
+		it 'I fill in the new restaurant form correctly' do		 
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			fill_in "Name", :with => "Chipotle"
