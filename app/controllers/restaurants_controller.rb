@@ -6,7 +6,10 @@ end
 
 def new
 	@restaurant = Restaurant.new
-	redirect_to '/restaurants' if !user_signed_in?
+	if !user_signed_in?
+		flash[:notice] = "Sign in to add a restaurant!" 
+		redirect_to '/restaurants'
+	end
 end
 
 def create

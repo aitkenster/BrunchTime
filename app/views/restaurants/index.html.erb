@@ -20,7 +20,7 @@
 				<td><%= restaurant.cuisine %></td>
 				<td><%= link_to 'Info', restaurant_path(restaurant) %></td>
 				<td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-				<td><%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+				<td><%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: {confirm: 'you sure?'} %></td>
 			</tr>
 		<% end %>
 	</table>

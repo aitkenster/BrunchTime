@@ -20,6 +20,7 @@ describe 'user options' do
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			expect(page).not_to have_content("Please enter the details for the restaurant you wish to add:")
+			expect(page).to have_content("Sign in to add a restaurant!")
 		end
 
 	end
