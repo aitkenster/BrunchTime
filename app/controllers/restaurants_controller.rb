@@ -13,7 +13,7 @@ def new
 end
 
 def create
-	@restaurant = Restaurant.new(restaurant_params)
+	@restaurant = current_user.restaurants.new(restaurant_params)
 	if @restaurant.save
 		redirect_to '/restaurants'
 	else
