@@ -2,10 +2,13 @@ require 'rails_helper'
 
 describe "restaurants" do 
 
-	include Warden::Test::Helpers
-  Warden.test_mode!
-
- 
+	before(:each) do
+		visit '/users/sign_up'
+		fill_in "Email", with: "wahoo@yahoo.com"
+		fill_in "Password", with: "12345678"
+		fill_in "Password confirmation", with: "12345678"
+		click_button "Sign up"
+	end
 
 	context 'when there are no restaurants' do
 		it "should tell the user there are no restaurants" do  

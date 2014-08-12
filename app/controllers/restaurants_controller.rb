@@ -6,6 +6,7 @@ end
 
 def new
 	@restaurant = Restaurant.new
+	redirect_to '/restaurants' if !user_signed_in?
 end
 
 def create
