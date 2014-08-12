@@ -44,7 +44,7 @@ def destroy
 	@restaurant.destroy
 
 	redirect_to'/restaurants'
-	end
+end
 
 private
 	def restaurant_params

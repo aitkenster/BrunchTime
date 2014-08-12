@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-describe 'reviews' do 
-
-	before(:each) do
-		@akbars = Restaurant.new(name: "akbars", cuisine: "Indian")
-	end
+RSpec.describe Review, :type=> :model do
 
 	it 'should not accept a value greater than 5 as a rating' do 
-		Review.create(reviewer: "Nicola", review: "Tasty", rating: 7)
-		expect(Review.all.count).to eq 0
+		review = Review.new(rating: 7)
+		expect(review).to have(1).error_on(:rating)
+	end
+
+		it 'should not accept a value less than 1 as a rating' do 
+		review = Review.new(rating: -1)
+		expect(review).to have(1).error_on(:rating)
 	end
 
 end
