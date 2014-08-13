@@ -45,5 +45,6 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'hirb'
 end
 

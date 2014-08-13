@@ -3,11 +3,8 @@ require 'rails_helper'
 describe "restaurants" do 
 
 	before(:each) do
-		visit '/users/sign_up'
-		fill_in "Email", with: "wahoo@yahoo.com"
-		fill_in "Password", with: "12345678"
-		fill_in "Password confirmation", with: "12345678"
-		click_button "Sign up"
+		sign_up("wahoo@yahoo.com", "12345678")
+		visit '/restaurants'
 	end
 
 	context 'when there are no restaurants' do
@@ -28,7 +25,7 @@ describe "restaurants" do
 
 	context 'when I want to add a new restaurant' do 
 
-		it 'I fill in the new restaurant form correctly' do		 
+		it 'I fill in the new restaurant form correctly' do		
 			click_link 'Add a restaurant'
 			fill_in "Name", :with => "Chipotle"
 			fill_in "Cuisine", :with => "Mexican"
@@ -53,12 +50,11 @@ describe "restaurants" do
 		end
 	end
 
-	context 'when I want to edit the details of a restaurant' do 
+	context 'when I want to edit the details of a restaurant Ive created' do 
 
-		before(:each) do
-			Restaurant.create(name: 'Duck and Waffle', cuisine: 'English')
-			visit '/restaurants'
-		end 
+		before(:each) do 
+			add_restaurant("Chipotle", "Mexican")
+		end
 
 		it 'I can change its name' do 
 			click_link 'Edit'
@@ -71,6 +67,20 @@ describe "restaurants" do
 			click_link 'Delete'
 			expect(page).to have_content("There are no restaurants currently listed on BrunchTime")
 		end
+	end
+
+	xcontext 'when I want to edit the details of a restaurant I havent created' do 
+			before(:each) do 
+				Restaurant.create(name: 'TGI Fridays', cuisine: 'American')
+				visit '/restaurants'
+			end
+
+		it 'I should not be able to get to the edit page' do 
+			sign_out
+			sign_up("gotmail@hotmail.com", "12345678")
+			expect(page).not_to have_content('Edit')
+		end 
+
 	end
 
 end
