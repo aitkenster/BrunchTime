@@ -10,7 +10,7 @@
 
 <p>
 	<strong>Average Rating:</strong>
-	<%= @restaurant.average_rating%>
+	<%= star_rating(@restaurant.average_rating)%>
 	</p>
 
 <h2>Reviews</h2>
@@ -21,7 +21,7 @@
 	</p>
 	<p>
 		<strong>Rating:</strong>
-		<%= review.rating%>
+		<%= star_rating(review.rating)%>
 	</p>
 	<p>
 		<strong>Review:</strong>

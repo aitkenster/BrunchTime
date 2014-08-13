@@ -11,5 +11,21 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ReviewsHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#star_rating' do 
+  	it 'does nothing if rating is not a number' do 
+  		expect(helper.star_rating('N/A')).to eq 'N/A'
+  	end
+
+  	it 'returns 5 black stars if the review rating is 5' do 
+  		expect(helper.star_rating(5)).to eq '★★★★★'
+  	end
+
+  	it 'returns 3 black stars and 2 white stars for 3' do
+  		expect(helper.star_rating(3)).to eq '★★★☆☆'
+  	end
+
+  	xit 'rounds to the nearest star rating for none-whole numbers' do 
+  		expect(helper.star_rating(3.5)).to eq
+  	end
+  end
 end

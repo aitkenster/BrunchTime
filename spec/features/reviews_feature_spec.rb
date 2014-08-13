@@ -6,7 +6,7 @@ describe 'Reviews' do
 			Restaurant.create(name: 'Duck and Waffle', cuisine: 'English')
 			visit '/restaurants'
 			click_link "Info"
-		end 
+	end 
 
 	context 'when somebody wants to leave a review'
 
@@ -16,6 +16,7 @@ describe 'Reviews' do
 			fill_in "Review", :with => "I love both ducks and waffles"
 			click_button 'Create Review'
 			expect(page).to have_content("I love both ducks and waffles")
+			expect(page).to have_content("★★★★★")
 		end
 
 		it 'should not be able to leave a review if the rating is not filled in' do 
@@ -31,6 +32,6 @@ describe 'Reviews' do
 			fill_in "Reviewer", :with => "Michael Winner"
 			choose 1
 			click_button 'Create Review'
-			expect(page).to have_content "Average Rating: 3"
+			expect(page).to have_content "Average Rating: ★★★☆☆"
 		end
 end

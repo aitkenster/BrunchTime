@@ -6,7 +6,8 @@ class Restaurant < ActiveRecord::Base
 	validates :cuisine, presence: true, length: {minimum: 3}
 
 	def average_rating
-		reviews.average(:rating)
+		return 'N/A' if reviews.none?
+		reviews.average(:rating).to_f
 	end
 
 end
