@@ -8,6 +8,11 @@
 	<%= @restaurant.cuisine %>
 </p>
 
+<p>
+	<strong>Average Rating:</strong>
+	<%= @restaurant.average_rating%>
+	</p>
+
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do | review| %>
 	<p>

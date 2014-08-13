@@ -24,13 +24,13 @@ describe 'Reviews' do
 			expect(page).to have_content("Rating can't be blank")
 		end
 
-		# it 'the restaurant page should display an average rating' do
-		# 	fill_in "Reviewer", :with => "Giles Coren"
-		# 	choose 5
-		# 	click_button 'Create Review'
-		# 	fill_in "Reviewer", :with => "Michael Winner"
-		# 	choose 1
-		# 	click_button 'Create Review'
-		# 	expect(page).to have_content "Average Rating: 3"
-		# end
+		it 'the restaurant page should display an average rating' do
+			fill_in "Reviewer", :with => "Giles Coren"
+			choose 5
+			click_button 'Create Review'
+			fill_in "Reviewer", :with => "Michael Winner"
+			choose 1
+			click_button 'Create Review'
+			expect(page).to have_content "Average Rating: 3"
+		end
 end

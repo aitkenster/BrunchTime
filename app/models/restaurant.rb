@@ -4,4 +4,9 @@ class Restaurant < ActiveRecord::Base
 	
 	validates :name, presence: true, length: { minimum: 3 }
 	validates :cuisine, presence: true, length: {minimum: 3}
+
+	def average_rating
+		reviews.average(:rating)
+	end
+
 end
