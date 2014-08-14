@@ -25,3 +25,10 @@ def add_restaurant(name, cuisine)
 	fill_in "Cuisine", :with => cuisine
 	click_button "Create Restaurant"
 end
+
+def add_review(reviewer, rating, review)
+	fill_in "Reviewer", :with => reviewer
+	choose rating
+	fill_in "Review", :with => review
+	click_button 'Create Review'
+end

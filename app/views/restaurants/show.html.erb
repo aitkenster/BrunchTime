@@ -15,18 +15,22 @@
 
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do | review| %>
-	<p>
-		<strong>Reviewer:</strong>
-		<%= review.reviewer%>
-	</p>
-	<p>
-		<strong>Rating:</strong>
-		<%= star_rating(review.rating)%>
-	</p>
-	<p>
-		<strong>Review:</strong>
-		<%= review.review%>
-	</p>
+		<% if review.id != nil %>
+			<p>
+				<strong>Reviewer:</strong>
+				<%= review.reviewer%>
+			</p>
+			<p>
+				<strong>Rating:</strong>
+				<%= star_rating(review.rating)%>
+			</p>
+			<p>
+				<strong>Review:</strong>
+				<%= review.review%>
+			</p>
+			<p><%= review.luvits.count%> Brunchers Luvit!</p>
+			<%= link_to "Luvit?", review_luvits_path(review), method: :post %> 
+		<%end%>
 <%end%>
 
 

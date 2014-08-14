@@ -43,6 +43,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+	gem 'poltergeist'
+	gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'hirb'

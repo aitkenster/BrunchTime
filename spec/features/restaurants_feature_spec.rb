@@ -82,5 +82,10 @@ describe "restaurants" do
 		end 
 
 	end
+context 'phantom' do
+	it 'testing phantom', js:true do 
+
+	end
+end
 
 end

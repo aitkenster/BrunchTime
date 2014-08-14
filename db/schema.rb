@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812150812) do
+ActiveRecord::Schema.define(version: 20140814081711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "luvits", force: true do |t|
+    t.integer  "review_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "luvits", ["review_id"], name: "index_luvits_on_review_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
