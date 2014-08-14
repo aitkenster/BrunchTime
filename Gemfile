@@ -48,5 +48,6 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'hirb'
+  gem 'warden'
 end
 

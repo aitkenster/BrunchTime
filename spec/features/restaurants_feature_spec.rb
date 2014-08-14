@@ -80,12 +80,6 @@ describe "restaurants" do
 			sign_up("gotmail@hotmail.com", "12345678")
 			expect(page).not_to have_content('Edit')
 		end 
-
 	end
-context 'phantom' do
-	it 'testing phantom', js:true do 
-
-	end
-end
 
 end

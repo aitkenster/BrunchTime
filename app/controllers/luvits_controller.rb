@@ -3,7 +3,6 @@ class LuvitsController < ApplicationController
 		@review = Review.find(params[:review_id])
 		@review.luvits.create
 
-		@restaurant = @review.restaurant_id
-		redirect_to restaurant_path(@restaurant)
+		render json: { new_luvits_count: @review.luvits.count }
 	end
 end

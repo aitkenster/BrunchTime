@@ -15,6 +15,7 @@
 
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do | review| %>
+	<div>
 		<% if review.id != nil %>
 			<p>
 				<strong>Reviewer:</strong>
@@ -28,9 +29,15 @@
 				<strong>Review:</strong>
 				<%= review.review%>
 			</p>
-			<p><%= review.luvits.count%> Brunchers Luvit!</p>
-			<%= link_to "Luvit?", review_luvits_path(review), method: :post %> 
+			<% if review.luvits.any? %>
+				<p class='luvit_count'><span><%= review.luvits.count%></span> Brunchers Luvit!</p>
+			<% else %>
+				<p class='luvit_count'><span>No</span> Brunchers Luvit!</p>
+			<% end %>
+
+			<%= link_to "Luvit?", review_luvits_path(review), class: 'luvit-link' %> 
 		<%end%>
+	</div>
 <%end%>
 
 
