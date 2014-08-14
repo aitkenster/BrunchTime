@@ -2,6 +2,7 @@
 	<%= link_to 'Sign In', new_user_session_path %>
 	<%= link_to 'Sign Up', new_user_registration_path %>
 <% else %>
+	Hello <%= current_user.email %>
 	<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 <%end%> 
 
@@ -19,8 +20,13 @@
 				<td><%= restaurant.name %></td>
 				<td><%= restaurant.cuisine %></td>
 				<td><%= link_to 'Info', restaurant_path(restaurant) %></td>
-				<td><%= (link_to 'Edit', edit_restaurant_path(restaurant)) %></td>
-				<td><%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: {confirm: 'you sure?'} %></td>
+				<% if restaurant.user == current_user %>
+					<td><%= (link_to 'Edit', edit_restaurant_path(restaurant)) %></td>
+					<td><%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: {confirm: 'you sure?'} %></td>
+				<%else%>
+					<td></td>
+					<td></td>
+				<%end%>
 			</tr>
 		<% end %>
 	</table>

@@ -69,7 +69,7 @@ describe "restaurants" do
 		end
 	end
 
-	xcontext 'when I want to edit the details of a restaurant I havent created' do 
+	context 'when I want to edit the details of a restaurant I havent created' do 
 			before(:each) do 
 				Restaurant.create(name: 'TGI Fridays', cuisine: 'American')
 				visit '/restaurants'
@@ -79,6 +79,12 @@ describe "restaurants" do
 			sign_out
 			sign_up("gotmail@hotmail.com", "12345678")
 			expect(page).not_to have_content('Edit')
+		end 
+
+		it 'I should not be able to delete it' do 
+			sign_out
+			sign_up("gotmail@hotmail.com", "12345678")
+			expect(page).not_to have_content('Delete')
 		end 
 	end
 

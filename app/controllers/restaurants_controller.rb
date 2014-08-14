@@ -27,7 +27,7 @@ def show
 end
 
 def edit
-	@restaurant = Restaurant.find(params[:id])
+	@restaurant = current_user.restaurants.find(params[:id])
 end
 
 def update
@@ -40,7 +40,7 @@ def update
 end
 
 def destroy
-	@restaurant = Restaurant.find(params[:id])
+	@restaurant = current_user.restaurants.find(params[:id])
 	@restaurant.destroy
 
 	redirect_to'/restaurants'
