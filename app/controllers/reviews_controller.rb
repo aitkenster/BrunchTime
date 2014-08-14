@@ -13,13 +13,6 @@ class ReviewsController < ApplicationController
 		end
 	end
 
-	# def average_rating
-	# 	@restaurant = Restaurant.find(params[:restaurant_id])
-	# 	@ratings = @restaurant.reviews.all.map{|review| review.rating}
-	# 	@average_rating = (@ratings.inject {|sum, rating| sum + rating})/@ratings.count
-	# 	return @average_rating
-	# end
-
 	private
 
 		def review_params
