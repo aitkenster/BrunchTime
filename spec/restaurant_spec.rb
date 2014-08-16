@@ -33,8 +33,7 @@ end
 		context 'average is a float' do 
 			it 'returns a float instead of a whole number' do 
 				restaurant.reviews.create(reviewer: "me", rating: 4)
-				restaurant.reviews.create(reviewer: "me", rating: 5)
-				expect(restaurant.average_rating).to eq 4.5
+				expect(restaurant.average_rating).to eq 4.0
 			end
 		end
 	end

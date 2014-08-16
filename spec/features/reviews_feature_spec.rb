@@ -9,13 +9,10 @@ describe 'Reviews' do
 		click_link "Info"
 	end
 
-	context 'when somebody wants to leave a review and they are logged in'
+	context 'when somebody wants to leave a review and they are logged in' do
 
 		it 'should be able to leave a review for a Restaurant' do 
-			fill_in "Reviewer", :with => "Giles Coren"
-			choose 5
-			fill_in "Review", :with => "I love both ducks and waffles"
-			click_button 'Create Review'
+			add_review("Giles Coren", 5, "I love both ducks and waffles")
 			expect(page).to have_content("I love both ducks and waffles")
 			expect(page).to have_content("★★★★★")
 		end
@@ -27,14 +24,17 @@ describe 'Reviews' do
 		end
 
 		it 'the restaurant page should display an average rating' do
-			fill_in "Reviewer", :with => "Giles Coren"
-			choose 5
-			click_button 'Create Review'
-			fill_in "Reviewer", :with => "Michael Winner"
-			choose 1
-			click_button 'Create Review'
-			expect(page).to have_content "Average Rating: ★★★☆☆"
+			add_review("Giles Coren", 5, "I love both ducks and waffles")
+			expect(page).to have_content "Average Rating: ★★★★★"
 		end
+
+		it 'they should should not be able to review a restaurant more than once' do 
+			add_review("Giles Coren", 5, "I love both ducks and waffles")
+			add_review("Giles Coren", 1, "I hate both ducks and waffles")
+			expect(page).to have_content "1 error prevented this review from being saved"
+		end
+
+	end
 
 	context 'when somebody wants to leave a review and they are not logged in' do 
 
@@ -44,13 +44,10 @@ describe 'Reviews' do
 		end
 
 		it 'they should not be able to leave a review' do 
-			fill_in "Reviewer", :with => "Giles Coren"
-			choose 5
-			fill_in "Review", :with => "I love both ducks and waffles"
-			click_button 'Create Review'
+			add_review("Giles Coren", 5, "I love both ducks and waffles")
 			expect(page).not_to have_content("I love both ducks and waffles")
 			expect(page).to have_content("Sign in to leave a review")
-			end
 		end
+	end
 
 end
