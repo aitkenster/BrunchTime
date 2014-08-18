@@ -1,28 +1,17 @@
-== README
+Week 8 Project at Makers Academy. The project was to create a restaurant review website, using Ruby on Rails for the first time.
+Users can sign up, log in and add restaurants, as well as leaving reviews for them.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Technologies Used:
 
-Things you may want to cover:
+Ruby 
+Rails
+HTML
+CSS
+RSPEC
+Capybara
+Ajax
+JQuery
+PSQL
+Git
+Devise
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
